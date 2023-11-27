@@ -8,9 +8,7 @@ Labs utilisant Ansible, Nginx sur Docker dans WSL ubuntu 22.04.
 
 ```bash
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-#mettre a jour le noyaux :
 wsl.exe --update
-wsl --install - debian
 wsl --install --distribution Ubuntu-22.04
 ```
 
@@ -23,7 +21,7 @@ wsl --install --distribution Ubuntu-22.04
 ```
 
 ## Ubuntu
-### lancer le script
+### Copiez le script dans le /home/ubuntu de votre user ubuntu & lancer le script
 ```bash
 chmod 755 ./install_wsl_lab.sh
 ./install_wsl_lab.sh
