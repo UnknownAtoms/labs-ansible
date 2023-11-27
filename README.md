@@ -23,6 +23,7 @@ wsl --install --distribution Ubuntu-22.04
 ## Ubuntu
 ### Lancement du script d'installation
 ```bash
+#curl https://github.com/UnknownAtoms/labs-ansible/blob/main/install_wsl_lab.sh -o ./install_wsl_lab.sh
 chmod 755 ./install_wsl_lab.sh
 ./install_wsl_lab.sh
 ```
