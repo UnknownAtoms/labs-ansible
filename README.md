@@ -45,6 +45,6 @@ docker exec -it ubuntu_lb_1 bash
 ```bash
 ansible all -i 172.19.0.3, -m ping
 
-ansible-playbook -i inventory.yml ping.yml
+ansible-playbook -i /etc/ansible/hosts/inventory.yml ./etc/ansible/hosts/playbook/ping.yml
 
 ```
