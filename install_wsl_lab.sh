@@ -1,3 +1,12 @@
+#!/bin/bash
+
+#wsl -l
+#wsl --terminate Ubuntu-22.04
+#wsl --unregister Ubuntu-22.04
+#wsl --install --distribution Ubuntu-22.04
+#chmod 755 ./install_wsl_lab.sh
+#./install_wsl_lab.sh
+
 sudo apt update
 
 #install docker
@@ -16,10 +25,15 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 sudo usermod -aG docker ubuntu
 
-mkdir -p ansible-img/ubuntu_22_04_custom/ssh_key
-mkdir -p ansible-img/ubuntu_22_04_ansible/ssh_key
 
-mkdir ansible-conf
+sudo apt-get install unzip
+
+# Télécharger le fichier ZIP avec curl et le décompresser dans le répertoire local
+curl -L "https://github.com/UnknownAtoms/labs-ansible/archive/master.zip" -o "/home/ubuntu/labs-ansible.zip"
+unzip "/home/ubuntu/labs-ansible.zip" -d /home/ubuntu/
+rm "/home/ubuntu/labs-ansible.zip"
+cp ./labs-ansible-main/* ./
+rm -rf ./labs-ansible-main/
 
 #ansible conf pour ne pas check les clés ssh ( known_hosts )
 #echo "[defaults]
