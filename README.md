@@ -43,8 +43,6 @@ docker exec -it ubuntu_lb_1 bash
 
 ## Conteneur ubuntu_ansible_1
 ```bash
-ansible all -i 172.19.0.3, -m ping
-
+#ansible all -i 172.19.0.3, -m ping
 ansible-playbook -i /etc/ansible/hosts/inventory.yml ./etc/ansible/hosts/playbook/ping.yml
-
 ```
