@@ -21,8 +21,20 @@ wsl --install --distribution Ubuntu-22.04
 ```
 
 ## Ubuntu
-### Copiez le script dans le /home/ubuntu de votre user ubuntu & lancer le script
+### Lancement du script d'installation
 ```bash
 chmod 755 ./install_wsl_lab.sh
 ./install_wsl_lab.sh
+```
+
+### Connexions au conteneurs
+```bash
+docker exec -it ubuntu_ansible_1 bash
+docker exec -it ubuntu_ubuntu_1 bash
+docker exec -it ubuntu_lb_1 bash
+```
+
+## Conteneur ubuntu_ansible_1
+```bash
+ansible all -i 172.19.0.3, -m ping
 ```
