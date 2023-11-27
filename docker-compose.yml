@@ -10,3 +10,6 @@ services:
     image: lab_ubuntu_22_04:1.0
   lb:
     image: lab_ubuntu_22_04:1.0
+    ports:
+      - "80:80"
+      - "443:443"
