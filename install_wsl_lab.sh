@@ -56,4 +56,4 @@ chmod 400 ./ansible-img/ubuntu_22_04_custom/ssh_key/id_rsa.pub
 sudo docker build -t lab_ubuntu_22_04:1.0 ./ansible-img/ubuntu_22_04_custom
 sudo docker build -t lab_ubuntu_22_04_ansible:1.0 ./ansible-img/ubuntu_22_04_ansible
 
-docker-compose up -d
+sudo docker-compose up -d
