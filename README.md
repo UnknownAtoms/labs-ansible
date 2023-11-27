@@ -9,7 +9,8 @@ wsl -l
 wsl --terminate Ubuntu-22.04
 wsl --unregister Ubuntu-22.04
 wsl --install --distribution Ubuntu-22.04
-
-
+```
+## Ubuntu
+### lancer le script
 chmod 755 ./install_wsl_lab.sh
 ./install_wsl_lab.sh
