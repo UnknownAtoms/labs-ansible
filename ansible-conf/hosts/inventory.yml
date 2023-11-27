@@ -1,0 +1,13 @@
+# inventory.yml
+
+nginx:
+  hosts:
+    nginx_proxy:
+      ansible_host: 172.19.0.3
+      ansible_user: root
+
+rancher:
+  hosts:
+    ubuntu2204:
+      ansible_host: 172.19.0.4
+      ansible_user: root
