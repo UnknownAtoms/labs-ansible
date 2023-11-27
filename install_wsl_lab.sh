@@ -14,9 +14,21 @@ echo \
   "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose unzip
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose
 
 sudo usermod -aG docker ubuntu
+
+
+sudo apt-get install -y unzip
+
+# Télécharger le fichier ZIP avec curl et le décompresser dans le répertoire local
+#curl -L "https://github.com/UnknownAtoms/labs-ansible/archive/master.zip" -o "/home/ubuntu/labs-ansible.zip"
+#unzip "/home/ubuntu/labs-ansible.zip" -d /home/ubuntu/
+#rm "/home/ubuntu/labs-ansible.zip"
+
+#rm /home/ubuntu/labs-ansible-main/install_wsl_lab.sh
+#cp -r ./labs-ansible-main/* ./
+#rm -rf ./labs-ansible-main/
 
 #ansible conf pour ne pas check les clés ssh ( known_hosts ) plus besoin car clés ssh ok
 #echo "[defaults]
@@ -30,12 +42,14 @@ cp ./ansible-img/ubuntu_22_04_ansible/ssh_key/id_rsa.pub ./ansible-img/ubuntu_22
 chmod 400 ./ansible-img/ubuntu_22_04_ansible/ssh_key/id_rsa
 chmod 400 ./ansible-img/ubuntu_22_04_custom/ssh_key/id_rsa.pub
 
+
 sudo docker build -t lab_ubuntu_22_04:1.0 ./ansible-img/ubuntu_22_04_custom
 sudo docker build -t lab_ubuntu_22_04_ansible:1.0 ./ansible-img/ubuntu_22_04_ansible
 
 sudo docker-compose up -d
 
 sudo docker ps -a
+
 
 # docker_inventory.sh
 echo '{"all": {"hosts": {'$(docker ps --format '{{.Names}}' | xargs -I {} docker inspect --format '"{}": {"ansible_host": "{{.NetworkSettings.Networks.ubuntu_default.IPAddress}}", "ansible_user": "root"}' {} | sed ':a;N;$!ba;s/\n/, /g')'}}, "children": {"ungrouped": {"hosts": {}}}}' > ./ansible-conf/hosts/inventory.yml

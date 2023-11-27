@@ -1,1 +1,1 @@
-{"all": {"hosts": {"ubuntu_ansible_1": {"ansible_host": "172.19.0.2", "ansible_user": "root"}, "ubuntu_ubuntu_1": {"ansible_host": "172.19.0.3", "ansible_user": "root"}, "ubuntu_lb_1": {"ansible_host": "172.19.0.4", "ansible_user": "root"}}}, "children": {"ungrouped": {"hosts": {}}}}
+{"all": {"hosts": {"ubuntu_lb_1": {"ansible_host": "172.19.0.4", "ansible_user": "root"}, "ubuntu_ansible_1": {"ansible_host": "172.19.0.2", "ansible_user": "root"}, "ubuntu_ubuntu_1": {"ansible_host": "172.19.0.3", "ansible_user": "root"}}}, "children": {"ungrouped": {"hosts": {}}}}

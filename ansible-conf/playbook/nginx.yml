@@ -1,0 +1,16 @@
+  - hosts: ubuntu_lb_1
+    roles:
+      - nginx_revproxy
+    vars:
+      nginx_revproxy_sites:
+        default:
+          ssl: false
+          letsencrypt: false
+
+        example.com:
+          domains:
+            - monsite.local
+          upstreams:
+            - { backend_address: 172.19.0.3, backend_port: 80 }
+          ssl: true
+          letsencrypt: false
