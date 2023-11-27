@@ -33,19 +33,25 @@ sudo apt-get install -y unzip
 curl -L "https://github.com/UnknownAtoms/labs-ansible/archive/master.zip" -o "/home/ubuntu/labs-ansible.zip"
 unzip "/home/ubuntu/labs-ansible.zip" -d /home/ubuntu/
 rm "/home/ubuntu/labs-ansible.zip"
-cp ./labs-ansible-main/* ./
+
+rm /home/ubuntu/labs-ansible-main/install_wsl_lab.sh
+cp -r ./labs-ansible-main/* ./
 rm -rf ./labs-ansible-main/
 
-#ansible conf pour ne pas check les clés ssh ( known_hosts )
+#ansible conf pour ne pas check les clés ssh ( known_hosts ) plus besoin car clés ssh ok
 #echo "[defaults]
 #host_key_checking = False" > ./ansible-conf/ansible.cfg
 
 #création des key pour les communications ssh entre ansbile et les autres conteneurs 
 ssh-keygen -t rsa -b 4096 -C "ansiblelab" -f ./ansible-img/ubuntu_22_04_ansible/ssh_key/id_rsa -q -N ""
-cp ./ansible-img/ubuntu_22_04_ansible/ssh_key/id_rsa.pud ./ubuntu_22_04_custom/ssh_key/id_rsa.pud && rm ./ansible-img/ubuntu_22_04_ansible/ssh_key/id_rsa.pud
+sleep 3s
+cp ./ansible-img/ubuntu_22_04_ansible/ssh_key/id_rsa.pub ./ansible-img/ubuntu_22_04_custom/ssh_key/id_rsa.pub
+sleep 3s
+rm ./ansible-img/ubuntu_22_04_ansible/ssh_key/id_rsa.pub
 
 chmod 400 ./ansible-img/ubuntu_22_04_ansible/ssh_key/id_rsa
-chmod 400 ./ansible-img/ubuntu_22_04_custom/ssh_key/id_rsa.pud
+chmod 400 ./ansible-img/ubuntu_22_04_custom/ssh_key/id_rsa.pub
+
 
 sudo docker build -t lab_ubuntu_22_04:1.0 ./ansible-img/ubuntu_22_04_custom
 sudo docker build -t lab_ubuntu_22_04_ansible:1.0 ./ansible-img/ubuntu_22_04_ansible
