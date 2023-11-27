@@ -1,0 +1,6 @@
+---
+- name: Ping SSH hosts
+  hosts: all
+  tasks:
+    - name: Ping hosts
+      ping:

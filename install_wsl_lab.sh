@@ -38,8 +38,6 @@ sudo apt-get install -y unzip
 ssh-keygen -t rsa -b 4096 -C "ansiblelab" -f ./ansible-img/ubuntu_22_04_ansible/ssh_key/id_rsa -q -N ""
 sleep 3s
 cp ./ansible-img/ubuntu_22_04_ansible/ssh_key/id_rsa.pub ./ansible-img/ubuntu_22_04_custom/ssh_key/id_rsa.pub
-sleep 3s
-rm ./ansible-img/ubuntu_22_04_ansible/ssh_key/id_rsa.pub
 
 chmod 400 ./ansible-img/ubuntu_22_04_ansible/ssh_key/id_rsa
 chmod 400 ./ansible-img/ubuntu_22_04_custom/ssh_key/id_rsa.pub
@@ -51,3 +49,9 @@ sudo docker build -t lab_ubuntu_22_04_ansible:1.0 ./ansible-img/ubuntu_22_04_ans
 sudo docker-compose up -d
 
 sudo docker ps -a
+
+
+# docker_inventory.sh
+echo '{"all": {"hosts": {'$(docker ps --format '{{.Names}}' | xargs -I {} docker inspect --format '"{}": {"ansible_host": "{{.NetworkSettings.Networks.ubuntu_default.IPAddress}}", "ansible_user": "root"}' {} | sed ':a;N;$!ba;s/\n/, /g')'}}, "children": {"ungrouped": {"hosts": {}}}}' > ./ansible-conf/hosts/inventory.yml
+
+

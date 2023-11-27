@@ -30,7 +30,9 @@ RUN mkdir /var/run/sshd \
 # SSH key setup
 COPY ssh_key /root/.ssh/
 RUN chmod 600 /root/.ssh/id_rsa
-
+RUN chmod 644 /root/.ssh/id_rsa.pub && \
+    cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys && \
+    chmod 600 /root/.ssh/authorized_keys
 # Expose SSH port
 EXPOSE 22
 #EXPOSE 80
