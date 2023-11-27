@@ -22,13 +22,13 @@ sudo usermod -aG docker ubuntu
 sudo apt-get install -y unzip
 
 # Télécharger le fichier ZIP avec curl et le décompresser dans le répertoire local
-curl -L "https://github.com/UnknownAtoms/labs-ansible/archive/master.zip" -o "/home/ubuntu/labs-ansible.zip"
-unzip "/home/ubuntu/labs-ansible.zip" -d /home/ubuntu/
-rm "/home/ubuntu/labs-ansible.zip"
+#curl -L "https://github.com/UnknownAtoms/labs-ansible/archive/master.zip" -o "/home/ubuntu/labs-ansible.zip"
+#unzip "/home/ubuntu/labs-ansible.zip" -d /home/ubuntu/
+#rm "/home/ubuntu/labs-ansible.zip"
 
-rm /home/ubuntu/labs-ansible-main/install_wsl_lab.sh
-cp -r ./labs-ansible-main/* ./
-rm -rf ./labs-ansible-main/
+#rm /home/ubuntu/labs-ansible-main/install_wsl_lab.sh
+#cp -r ./labs-ansible-main/* ./
+#rm -rf ./labs-ansible-main/
 
 #ansible conf pour ne pas check les clés ssh ( known_hosts ) plus besoin car clés ssh ok
 #echo "[defaults]

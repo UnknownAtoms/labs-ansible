@@ -18,12 +18,18 @@ wsl -l
 wsl --terminate Ubuntu-22.04
 wsl --unregister Ubuntu-22.04
 wsl --install --distribution Ubuntu-22.04
+#Créer un utilisateur "ubuntu"
 ```
 
 ## Ubuntu
 ### Lancement du script d'installation
 ```bash
-#curl https://github.com/UnknownAtoms/labs-ansible/blob/main/install_wsl_lab.sh -o ./install_wsl_lab.sh
+sudo apt-get update || true
+sudo apt-get install -y unzip
+curl -L "https://github.com/UnknownAtoms/labs-ansible/archive/master.zip" -o "/home/ubuntu/labs-ansible.zip" && unzip "/home/ubuntu/labs-ansible.zip" -d /home/ubuntu/
+rm "/home/ubuntu/labs-ansible.zip"
+cp -r ./labs-ansible-main/* ./
+rm -rf ./labs-ansible-main/
 chmod 755 ./install_wsl_lab.sh
 ./install_wsl_lab.sh
 ```
