@@ -12,5 +12,7 @@ wsl --install --distribution Ubuntu-22.04
 ```
 ## Ubuntu
 ### lancer le script
+```bash
 chmod 755 ./install_wsl_lab.sh
 ./install_wsl_lab.sh
+```
