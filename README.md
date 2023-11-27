@@ -1,11 +1,11 @@
 # Labs Ansible
 
-Ce projet vise à fournir des scripts pour la configuration d'environnements de laboratoire utilisant Ansible, Nginx, et Rancher 2 sur Docker.
-
-
+Labs utilisant Ansible, Nginx sur Docker dans WSL ubuntu 22.04.
 
 ## PowerShell
-###installation WSL
+
+### Installation WSL
+
 ```bash
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 #mettre a jour le noyaux :
