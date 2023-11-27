@@ -1,13 +1,5 @@
 #!/bin/bash
 
-#wsl -l
-#wsl --terminate Ubuntu-22.04
-#wsl --unregister Ubuntu-22.04
-#wsl --install --distribution Ubuntu-22.04
-#
-#chmod 755 ./install_wsl_lab.sh
-#./install_wsl_lab.sh
-
 sudo apt update
 
 #install docker
@@ -57,3 +49,5 @@ sudo docker build -t lab_ubuntu_22_04:1.0 ./ansible-img/ubuntu_22_04_custom
 sudo docker build -t lab_ubuntu_22_04_ansible:1.0 ./ansible-img/ubuntu_22_04_ansible
 
 sudo docker-compose up -d
+
+sudo docker ps -a
