@@ -1,2 +1,2 @@
-ansible-img/ubuntu_22_04_ansible/ssh_key/id_rsa*
-ansible-img/ubuntu_22_04_custom/ssh_key/id_rsa*
+./ansible-img/ubuntu_22_04_ansible/ssh_key/id_rsa*
+./ansible-img/ubuntu_22_04_custom/ssh_key/id_rsa*
